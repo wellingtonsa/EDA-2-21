@@ -153,5 +153,18 @@ public class RedBlackTree<K extends Comparable<K>, V> {
 		return getColor(n) == RED;
 	}
 	
+	public void inOrder() {
+		this.inOrder(root);
+	}
+	
+	
+	private void inOrder(Node node) {
+	    if(node != null){
+	    	inOrder(node.left);
+	      	System.out.println(node.value);
+	      	inOrder(node.right);
+	    }
+	}
+	
 
 }

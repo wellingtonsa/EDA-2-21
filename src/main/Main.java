@@ -34,10 +34,8 @@ public class Main {
 		Service s = clients.get("67834590012").getService(2);
 		s.setQuantity(4);
 
-		//Exibindo o servico 1
-		System.out.println(clients.get("67834590012").getService(1));
-		//Exibindo o servico 2
-		System.out.println(clients.get("67834590012").getService(2));
+		//Exibindo todos os serviços do cliente 1
+		clients.get("67834590012").getServices().inOrder();
 		
 	}
 

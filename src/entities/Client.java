@@ -47,6 +47,10 @@ public class Client {
 	public Service getService(Integer id) {
 		return this.services.get(id);
 	}
+	
+	public  RedBlackTree<Integer, Service> getServices() {
+		return this.services;
+	}
 
 	@Override
 	public String toString() {
