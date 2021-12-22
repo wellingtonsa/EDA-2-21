@@ -1,5 +1,4 @@
 package entities;
-
 public class Service {
 	private Integer id;
 	private String description;

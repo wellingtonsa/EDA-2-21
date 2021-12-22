@@ -1,13 +1,12 @@
 package entities;
 
-import structures.RedBlackTree;
-
+import structures.Heap;
 public class Client {
 	
 	private String fullName;
 	private String address;
 	private String CPF;
-	private RedBlackTree<Integer, Service> services;
+	private Heap<Service> services;
 	
 	public Client(String fullName, String address, String CPF, Service service) {
 		super();
@@ -15,7 +14,7 @@ public class Client {
 		this.address = address;
 		this.CPF = CPF;
 		
-		services = new RedBlackTree<Integer, Service>();
+		services = new Heap<Service>(300);
 		addService(service);
 	}
 	
@@ -33,7 +32,7 @@ public class Client {
 	}
 	
 	public void addService(Service service) {
-		this.services.put(service.getId(), service);
+		this.services.insert(service.getId(), service);
 	}
 
 	public String getCPF() {
@@ -45,10 +44,10 @@ public class Client {
 	}
 	
 	public Service getService(Integer id) {
-		return this.services.get(id);
+		return this.services.keyOf(id);
 	}
 	
-	public  RedBlackTree<Integer, Service> getServices() {
+	public Heap<Service> getServices() {
 		return this.services;
 	}
 
@@ -58,6 +57,10 @@ public class Client {
 	}
 
 	
-	
+	@Override
+	public boolean equals(Object obj){
+		Client c = (Client) obj;
+		return this.CPF.compareTo(c.getCPF()) <= 0;
+	}
 	
 }
